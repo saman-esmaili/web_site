@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>خانه</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        h3{
+            float: right;
+            display: inline;
+            color: black;
+        }
+        th{
+            border: 2px solid gray;
+            margin: 10px;
+            padding: 10px;
+        }
+        th:hover{
+            background-color: blanchedalmond;
+        }
+        div{
+            margin: 20px;
+            padding: 70px;
+            text-align: center;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<table align="right">
+    <tr>
+    <th><a href="{% url 'about' %}" target="_blank"><h3>درباره ما</h3></a></th>
+    <th><a href="{% url 'bmi' %}" target="_blank"><h3>محاسبه bmi</h3></a></th>
+    <th><a href="{% url 'usersList' %}" target="_blank"><h3>لیست کاربران</h3></a></th>
+    <th><h3>خانه</h3></th>
+    </tr>
+</table>
+
+    <div>
+        <h4>معرفی</h4>
+        <p>سلام خوش اومدید</p>
+        <p>این فقط یک تمرینه</p>
+    </div>
+    <img src="colorly.png" alt="several colors" align="center">
+    
+
+    
+</body>
+</html>
