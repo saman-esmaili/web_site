@@ -2,7 +2,7 @@ from django.urls import path,include
 from home import views
 urlpatterns = [
     path("",views.home_page,name="home"),
-    path('users/',include('users.urls')),
-    path('about/',include('about.urls')),
-    path('bmi/',include('bmi.urls'))
+    path('users/',views.users_page,name="usersList"),
+    path('about/',views.about,name="about"),
+    path('bmi/',views.calc_bmi,name="bmi"),
 ]
