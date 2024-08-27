@@ -5,4 +5,5 @@ urlpatterns = [
     path('users/',views.users_page,name="usersList"),
     path('about/',views.about,name="about"),
     path('bmi/',views.calc_bmi,name="bmi"),
+    path('input/',views.input,name="input"),
 ]
