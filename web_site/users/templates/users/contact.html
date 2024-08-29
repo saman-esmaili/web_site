@@ -10,14 +10,15 @@
                             	<div class="indent-left">
                                 	<h3>Contact Form</h3>
                                     <div class="p3">
-                                        <form id="contact-form" method="post" enctype="multipart/form-data">
+                                        <form id="contact-form" method="post" enctype="multipart/form-data" action="{% url 'contact' %}">
+                                            {% csrf_token %}
                                             <fieldset>
-                                                  <label><span class="text-form">Full Name:</span><input name="p1" type="text" /></label>
-                                                  <label><span class="text-form">E-mail:</span><input name="p2" type="text" /></label>
+                                                  <label><span class="text-form">Full Name:</span><input name="txtName" type="text" /></label>
+                                                  <label><span class="text-form">E-mail:</span><input name="txtEmail" type="text" /></label>
                                                   <div class="wrapper">
                                                     <div class="text-form">Message:</div>
                                                     <div class="extra-wrap">
-                                                        <textarea></textarea>
+                                                        <textarea name="txtComment"></textarea>
                                                         <div class="clear"></div>
                                                         <div class="buttons">
                                                             <a class="button-2" href="#" onClick="document.getElementById('contact-form').reset()">Clear</a>
