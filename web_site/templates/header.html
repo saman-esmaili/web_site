@@ -18,12 +18,36 @@
             <div class="main">
                 <nav>
                     <ul class="menu">
-                        <li><a class="active" href="{% url 'main' %}">Main</a></li>
-                        <li><a href="{% url 'about' %}">About Us</a></li>
-                        <li><a href="{% url 'courses' %}">Courses</a></li>
-                        <li><a href="{% url 'recipe' %}">New Recipes</a></li>
-                        <li><a href="{% url 'calendar' %}">Calendar</a></li>
-                        <li class="last"><a href="{% url 'contact' %}">Contacts</a></li>
+                        {% if id == 'page1' %}
+                            <li><a class="active" href="{% url 'main' %}">Main</a></li>
+                        {% else %}
+                            <li><a href="{% url 'main' %}">Main</a></li>
+                        {% endif %}
+                        {% if id == 'page2' %}
+                            <li><a class="active" href="{% url 'about' %}">About Us</a></li>
+                        {% else %}
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                        {% endif %}
+                        {% if id == 'page3' %}
+                            <li><a class="active" href="{% url 'courses' %}">Courses</a></li>
+                        {% else %}
+                            <li><a href="{% url 'courses' %}">Courses</a></li>
+                        {% endif %}
+                        {% if id == 'page4' %}
+                            <li><a class="active" href="{% url 'recipe' %}">New Recipes</a></li>
+                        {% else %}
+                            <li><a href="{% url 'recipe' %}">New Recipes</a></li>
+                        {% endif %}
+                        {% if id == 'page5' %}
+                            <li><a class="active" href="{% url 'calendar' %}">Calendar</a></li>
+                        {% else %}
+                            <li><a href="{% url 'calendar' %}">Calendar</a></li>
+                        {% endif %}
+                        {% if id == 'page6' %}
+                            <li class="last"><a class="active" href="{% url 'contact' %}">Contacts</a></li>
+                        {% else %}
+                            <li class="last"><a href="{% url 'contact' %}">Contacts</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
             </div>
