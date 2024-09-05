@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
 
 from users.models import Customer, Post
 
@@ -25,3 +26,18 @@ def contact(request):
         comment.save()
     return render(request,"users/contact.html",{'id':'page6'})
 
+def sign_in(request):
+    if request.method == 'POST':
+        username = request.POST['txtUsername']
+        password = request.POST['txtPassword']
+        user = authenticate(request,username=username,password=password)
+        if user is not None:
+            login(request,user)
+            return redirect('dashboard')
+        else:
+            return render(request,'users/sign_in.html',{'id':'page7','hasError':True})
+    return render(request,"users/sign_in.html",{"id":"page7"})
+
+
+def dashboard(request):
+    return render(request,"users/dashboard.html",{"id":"page8"})

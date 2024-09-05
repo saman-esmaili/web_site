@@ -1,0 +1,32 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block content %}
+<div class="inner">
+            <div class="main">
+                <section id="content">
+                    <div class="indent">
+                    	<div class="wrapper">
+                        	<article class="col-1">
+                            	<div class="indent-left">
+                                	<h3>Sign In</h3>
+                                    <div class="p3">
+                                        <form id="contact-form" method="post" action="{% url 'sign_in' %}">
+                                            {% csrf_token %}
+                                            <label><span class="text-form">Username:</span><input type="text" name="txtUsername"/></label>
+                                            <label><span class="text-form">Password:</span><input type="password" name="txtPassword"/></label>
+                                            <a class="button-2" href="#" onClick="document.getElementById('contact-form').submit()">Sign in</a>
+                                        </form>
+                                        {% if hasError == True %}
+                                            <p style="color: firebrick; text-align: center; font-weight: bold">username or password is incorrect</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+                </section>
+                <div class="block"></div>
+            </div>
+        </div>
+{% endblock %}

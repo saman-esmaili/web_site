@@ -1,0 +1,22 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block content %}
+    {% if user.is_authenticated == True %}
+        <div class="inner">
+                    <div class="main">
+                        <section id="content">
+                            <div class="indent">
+                                <div class="wrapper">
+                                    <article class="col-1">
+                                        <div class="indent-left">
+                                            <h3>Welcome To Dashboard</h3>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="block"></div>
+                    </div>
+                </div>
+    {% endif %}
+{% endblock %}

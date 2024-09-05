@@ -48,6 +48,11 @@
                         {% else %}
                             <li class="last"><a href="{% url 'contact' %}">Contacts</a></li>
                         {% endif %}
+                        {% if id == 'page7' %}
+                            <li class="last"><a class="active" href="{% url 'sign_in' %}">sign in</a></li>
+                        {% else %}
+                            <li class="last"><a href="{% url 'sign_in' %}">sign in</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
             </div>
