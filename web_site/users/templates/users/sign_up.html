@@ -1,0 +1,72 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block content %}
+<div class="inner">
+            <div class="main">
+                <section id="content">
+                    <div class="indent">
+                    	<div class="wrapper">
+                        	<article class="col-1">
+                            	<div class="indent-left">
+                                	<h3>Sign Up</h3>
+                                    <div class="p3">
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            <table class="myTable">
+                                                <tr>
+                                                    <td class="padding-5"><label>FullName:</label></td>
+                                                    <td><input type="text" name="txtFullName"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="padding-5"><label>Email:</label></td>
+                                                    <td><input type="email" name="txtEmail" oninput="
+                                                    if (this.validity.typeMismatch){this.setCustomValidity('لطفا ایمیل خود را درست وارد کنید')}
+                                                    else if (this.validity.valueMissing){this.setCustomValidity('لطفا این فیلد را پر کنید')}
+                                                    else{this.setCustomValidity('')}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="padding-5"><label>Birth Date:</label></td>
+                                                    <td><input type="date" name="txtBirthDate"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="padding-5"><label>Birth Date:</label></td>
+                                                    <td>
+                                                        <input type="radio" name="txtGender" id="male" value="male"><label for="male">Male</label>
+                                                    </td>
+                                                    <td><input type="radio" name="txtGender" id="female" value="female"><label for="female">Female</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="padding-5"><label>username:</label></td>
+                                                    <td><input type="text" name="txtUsername"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="padding-5"><label>Password:</label></td>
+                                                    <td><input type="password" name="txtPassword"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="padding-5"><label>RePassword:</label></td>
+                                                    <td><input type="password" name="txtRePassword"></td>
+                                                </tr>
+                                                <tr><td class="padding-5">
+                                                    <input type="submit" value="sign Up">
+                                                </td></tr>
+                                            </table>
+                                        </form>
+                                        {% if hasError == True %}
+                                            <p>{{ message }}</p>
+                                        {% else %}
+                                            {% if message %}
+                                                <p>{{ message }}</p>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+                </section>
+                <div class="block"></div>
+            </div>
+        </div>
+{% endblock %}

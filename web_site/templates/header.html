@@ -44,15 +44,19 @@
                             <li><a href="{% url 'calendar' %}">Calendar</a></li>
                         {% endif %}
                         {% if id == 'page6' %}
-                            <li class="last"><a class="active" href="{% url 'contact' %}">Contacts</a></li>
+                            <li><a class="active" href="{% url 'contact' %}">Contacts</a></li>
                         {% else %}
-                            <li class="last"><a href="{% url 'contact' %}">Contacts</a></li>
+                            <li><a href="{% url 'contact' %}">Contacts</a></li>
                         {% endif %}
-                        {% if id == 'page7' %}
-                            <li class="last"><a class="active" href="{% url 'sign_in' %}">sign in</a></li>
-                        {% else %}
-                            <li class="last"><a href="{% url 'sign_in' %}">sign in</a></li>
+                       
+                        {% if not user.is_authenticated %}
+                            <li><a href="{% url 'sign_in' %}">Login</a></li>
                         {% endif %}
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'logout' %}">Sign Out</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'sign_up' %}">Sign Up</a></li>
+                        <li class="last"><a href="{% url 'products' %}">products</a></li>
                     </ul>
                 </nav>
             </div>

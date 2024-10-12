@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .myForm{
+            text-align: center;
+        }
+        input[type='number']{
+            width: 80px;
+        }
+        input[type='number'],input[type='text'],input[type='submit']{
+            padding: 7px;
+            margin: 4px;
+        }
+        input[type='submit']:hover{
+            background-color: forestgreen;
+            transition: 30ms;
+            color: white;
+        }
+        table{
+            width: 100%;
+        }
+        table,td,th{
+            border-collapse: collapse;
+            border: 2px solid black;
+        }
+        td,th{
+            text-align: center;
+            padding: 7px;
+        }
+        a{
+            border-collapse: collapse;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid black;
+            padding: 2px;
+        }
+        a:hover{
+            background-color: darkkhaki;
+            transition: 40ms;
+        }
+        tr:hover{
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+<form action="{% url 'products' %}" class="myForm">
+    <label for="search">عبارت</label>
+    <input type="text" name="txtName" id="search">
+    <label for="price">قیمت</label>
+    <input type="number" name="lowPrice" placeholder="کمتر از" id="price">
+    <input type="number" name="highPrice" placeholder="بیشتر از">
+    <input type="submit" value="جستجو">
+</form>
+<table>
+    <thead>
+        <th>ردیف</th>
+        <th>نام کالا</th>
+        <th>قیمت</th>
+        <th>تعداد</th>
+        <th>دسته بندی</th>
+        <th>تخفیف</th>
+        <th>عملیات</th>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.amount }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.discount }}</td>
+                <td><a href="">حذف</a> <a href="">ویرایش</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
