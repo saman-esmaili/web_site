@@ -108,15 +108,16 @@ def products(request):
     search = request.GET.get('txtName')
     lowPrice = request.GET.get('lowPrice')
     highPrice = request.GET.get('highPrice')
-    if not search:
+    if not search and not lowPrice and not highPrice:
         products = Products.objects.all()
         context = {'products': products}
-    else:
-        if lowPrice and highPrice:
-            products = Products.objects.filter(Q(price__gte=highPrice)&Q(price__lte=lowPrice))
-        elif lowPrice and highPrice and search:
-            products = Products.objects.filter(Q(price__gt=highPrice)&Q(price__lt=lowPrice)&Q(name__contains=search))
-        else:
-            products = Products.objects.filter(Q(name__contains=search))
+    elif search and not lowPrice and not highPrice:
+        products = Products.objects.filter(Q(name__contains=search))
         context = {'products': products}
+    elif not search and lowPrice and highPrice:
+        products = Products.objects.filter(Q(price__gte=highPrice) & Q(price__lte=lowPrice))
+        context = {'products': products}
+    elif search and lowPrice and highPrice:
+            products = Products.objects.filter(Q(price__gt=highPrice)&Q(price__lt=lowPrice)&Q(name__contains=search))
+            context = {'products': products}
     return render(request, 'users/product.html', context)
